@@ -11,8 +11,8 @@ EMPTY_FIELD = '#'
 
 def coordinates_dict(height, width):
     coordinates_dict = {}
-    for i in range(height):
-        for j in range(width):
+    for i in range(width):
+        for j in range(height):
             coordinates_dict[alphabet[i]+str(j+1)]=i,j
     return coordinates_dict
 
@@ -57,7 +57,7 @@ def get_coordinate(LETTERNUMBER, active_board):
             print("\nInvalid input!\n")
 
 def is_valid_input(user_input, LETTERNUMBER, active_board):
-    col, row = (LETTERNUMBER[user_input.upper()])
+    col, row = LETTERNUMBER[user_input.upper()]
     if user_input.upper() in LETTERNUMBER.keys() and active_board[row][col] == EMPTY_FIELD:
         return True
     else:
@@ -96,7 +96,7 @@ def main():
     while True:
         print(f"\nThe step number: {step}.\n")
         print_board(active_board)
-        col_1, row_1  = get_coordinate(LETTERNUMBER, active_board)
+        col_1, row_1 = get_coordinate(LETTERNUMBER, active_board)
         active_board[row_1][col_1] = board[row_1][col_1]
         print_board(active_board)
         col_2, row_2 = get_coordinate(LETTERNUMBER, active_board)
