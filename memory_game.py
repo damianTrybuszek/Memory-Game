@@ -49,7 +49,7 @@ def console_clear():
 
 def get_coordinate(LETTERNUMBER, active_board):
     while True:
-        user_input = input("Please provide coordinates like B2:")
+        user_input = input("Please provide coordinates like B2 or C1:")
         if is_valid_input(user_input, LETTERNUMBER, active_board):
             user_coordinates = LETTERNUMBER[user_input.upper()]
             return user_coordinates
@@ -57,11 +57,14 @@ def get_coordinate(LETTERNUMBER, active_board):
             print("\nInvalid input!\n")
 
 def is_valid_input(user_input, LETTERNUMBER, active_board):
-    col, row = LETTERNUMBER[user_input.upper()]
-    if user_input.upper() in LETTERNUMBER.keys() and active_board[row][col] == EMPTY_FIELD:
-        return True
+    if user_input.upper() in LETTERNUMBER.keys() :
+        col, row = LETTERNUMBER[user_input.upper()]
+        if active_board[row][col] == EMPTY_FIELD:
+            return True
+        else:
+            return False
     else:
-        False
+        return False
 
 def choose_difficulty_level():
     is_looping = True
