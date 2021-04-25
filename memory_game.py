@@ -43,7 +43,6 @@ def print_board(board):
     for col, row in zip(numbers, board):
         print(col, " ".join(row))
 
-# clears the screen
 def console_clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -89,6 +88,7 @@ def choose_difficulty_level():
 
 
 def main():
+    console_clear()
     print("Welcome to Memory Game!\n")
     height, width = choose_difficulty_level()
     board = generate_board(height, width)
